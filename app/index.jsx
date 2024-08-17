@@ -1,12 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { withExpoSnack } from 'nativewind';
 
-export default function App() {
+import { Text, View } from 'react-native';
+import { styled } from 'nativewind';
+
+const StyledView = styled(View)
+const StyledText = styled(Text)
+
+const App = () => {
   return (
-   <View className="flex-1 items-center justify-center bg-white">
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <StyledView className="flex-1 items-center justify-center">
+      <Text className="text-slate-800">
+        Gym applciation
+      </Text>
+    </StyledView>
   );
 }
+export default withExpoSnack(App);
