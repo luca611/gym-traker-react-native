@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { ScrollView, View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { StatusBar, ScrollView, View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const Home = () => {
     let streak = 0;
     let maxStreak = 42;
-    let isFirstRender = true;
 
     const apiKey = '';
 
@@ -18,7 +17,7 @@ const Home = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                messages: [{ role: 'user', content: userMessage }],
+                messages: [{ role: 'user', content: "(the question must be gym related, if not refuse to answser, use also emoji, avoid ** **)" + userMessage }],
                 model: 'llama3-70b-8192'
             })
         });
@@ -29,8 +28,10 @@ const Home = () => {
 
     const handleRequest = () => {
         console.log('requesting');
+        setPrompt('');
         response = getGroqChatCompletion(prompt);
         response.then((data) => {
+            data = data + "\nThe answer is Ai generated so it might include errors, please verify it with a professional trainer.";
             setText(data);
         });
     }
@@ -39,6 +40,7 @@ const Home = () => {
     const [displayedText, setText] = useState('')
     return (
         <SafeAreaView style={styles.container}>
+            <ScrollView style={styles.scroll}>
                 <Text style={styles.title}>Home</Text>
 
                 <View style={styles.quickTools}>
@@ -59,27 +61,30 @@ const Home = () => {
                 </View>
                 <Text style={styles.secondaryTitle}>Ai help</Text>
                 <View style={styles.AiSection}>
-                    <View style={styles.chat}>
-                        <Text style={styles.buttonText}>{displayedText}</Text>
-                    </View>
+                    <ScrollView style={styles.chat}>
+                        <Text style={styles.aiText}>{displayedText}</Text>
+                    </ScrollView>
                     <View style={styles.chatTools}>
                         <TextInput style={styles.input}
                             placeholder="Type your message here"
                             onChangeText={(text) => setPrompt(text)}
+                            value={prompt}
                         />
                         <TouchableOpacity style={styles.button} onPress={handleRequest}><Text style={styles.buttonText}>ask</Text></TouchableOpacity>
                     </View>
                 </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: '#000',
-        padding: 25,
+        flex: 1,
+        paddingTop: StatusBar.currentHeight,
     },
+
     title: {
         color: '#fff',
         fontSize: 40,
@@ -101,7 +106,7 @@ const styles = StyleSheet.create({
     quickTools: {
         width: '100%',
         display: 'flex',
-        height: '20%',
+        height: 150,
         flexDirection: 'row',
         gap: 4,
         marginBottom: 16,
@@ -147,7 +152,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         gap: 16,
         width: '100%',
-        height: '55%',
+        height: 350,
         backgroundColor: '#1B1B1B',
         borderRadius: 5,
         padding: 15,
@@ -156,6 +161,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#000',
         height: '80%',
         borderRadius: 5,
+        padding: 10,
     },
     chatTools: {
         display: 'flex',
@@ -187,6 +193,17 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
+
+    aiText: {
+        color: '#fff',
+        fontSize: 16,
+        marginBottom: 20,
+    },
+
+    scroll: {
+        marginHorizontal: 20,
+        height: 600,
+    }
 });
 
 export default Home;
