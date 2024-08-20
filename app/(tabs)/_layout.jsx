@@ -1,16 +1,9 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import { Tabs, Redirect } from 'expo-router'
+import { NAVBAR } from '../../assets/icons/icons'
 import React from 'react'
 
 const TabIcon = ({ icon, color, name, focused }) => {
-    let imageSource;
-    if(focused){
-        let string = `../../assets/icons/Focused/`+icon;
-        imageSource = require(`../../assets/icons/Focused/home.png`);
-    }else{
-        let string = `../../assets/icons/Normal/`;
-        imageSource = require(`../../assets/icons/Normal/home.png`);
-    }
     return (
         <View style={{
             marginTop: 10,
@@ -25,10 +18,10 @@ const TabIcon = ({ icon, color, name, focused }) => {
                     style={{
                         width: 20, height: 20,
                         texrAlign: 'center',
-                        tintColor: '#fff',
                         left: 15,
+                        tintColor: focused ? '#FF2E2E' : '#fff',
                     }}
-                    source={imageSource}
+                    source={icon}
                 />
             </View>
             <View style={{
@@ -39,6 +32,7 @@ const TabIcon = ({ icon, color, name, focused }) => {
                     fontSize: 10,
                     textAlign: 'center',
                     fontWeight: 'bold',
+                    bottom: -5,
                 }}>{name}</Text>
             </View>
         </View>
@@ -60,7 +54,7 @@ const TabsLayout = () => {
                         headerShown: false,
                         tabBarIcon: ({color,focused }) => (
                             <TabIcon
-                                icon={"home.png"}
+                                icon={NAVBAR.home.source}
                                 focused={focused}
                                 color={color}
                                 name="Home"
@@ -75,7 +69,7 @@ const TabsLayout = () => {
                         headerShown: false,
                         tabBarIcon: ({ color, focused }) => (
                             <TabIcon
-                                icon={"workout.png "}
+                                icon={NAVBAR.workout.source}
                                 color={color}
                                 focused={focused}
                                 name="workouts"
@@ -90,7 +84,7 @@ const TabsLayout = () => {
                         headerShown: false,
                         tabBarIcon: ({ color, focused }) => (
                             <TabIcon
-                                icon={"profile.png"}
+                                icon={NAVBAR.profile.source}
                                 color={color}
                                 focused={focused}
                                 name="profile"
