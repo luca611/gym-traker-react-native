@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -18,6 +19,7 @@ const LoginScreen = () => {
   
   return (
     <View style={styles.container}>
+      <LinearGradient style={styles.container} start={{x:0,y:0}} end={{x:0,y:6}} colors={['#000','#FF3A3A']} >
       <Text style={styles.H1}>
         Register
       </Text>
@@ -63,6 +65,7 @@ const LoginScreen = () => {
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
       </View>
+      </LinearGradient>
     </View>
   );
 };
@@ -73,6 +76,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
   },
   input: {
     height: 50,
@@ -86,7 +90,7 @@ const styles = StyleSheet.create({
   button: {
     width: '80%',
     height: 50,
-    backgroundColor: '#545454',
+    backgroundColor: '#FF3A3A',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
@@ -132,7 +136,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttonContainer: {
-      marginTop: 30,
+      marginTop: '15%',
       width: '100%',
       alignItems: 'center',
   }

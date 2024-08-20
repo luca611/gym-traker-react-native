@@ -3,6 +3,14 @@ import { Tabs, Redirect } from 'expo-router'
 import React from 'react'
 
 const TabIcon = ({ icon, color, name, focused }) => {
+    let imageSource;
+    if(focused){
+        let string = `../../assets/icons/Focused/`+icon;
+        imageSource = require(`../../assets/icons/Focused/home.png`);
+    }else{
+        let string = `../../assets/icons/Normal/`;
+        imageSource = require(`../../assets/icons/Normal/home.png`);
+    }
     return (
         <View style={{
             marginTop: 10,
@@ -20,13 +28,18 @@ const TabIcon = ({ icon, color, name, focused }) => {
                         tintColor: '#fff',
                         left: 15,
                     }}
-                    source={icon}
+                    source={imageSource}
                 />
             </View>
             <View style={{
                 width: 50, 
             }} >
-            <Text style={{ color: '#fff', fontSize: 12, textAlign: 'center', marginBottom:-5}}>{name}</Text>
+                <Text style={{
+                    color: focused ? '#FF2E2E' : '#fff',
+                    fontSize: 10,
+                    textAlign: 'center',
+                    fontWeight: 'bold',
+                }}>{name}</Text>
             </View>
         </View>
     )
@@ -45,13 +58,13 @@ const TabsLayout = () => {
                     options={{
                         title: 'Home',
                         headerShown: false,
-                        tabBarIcon: ({ color, focused }) => (
+                        tabBarIcon: ({color,focused }) => (
                             <TabIcon
-                                icon={require('../../assets/icons/home.png')}
-                                color={color}
+                                icon={"home.png"}
                                 focused={focused}
-                                name="Home">
-                            </TabIcon>
+                                color={color}
+                                name="Home"
+                            />
                         )
                     }}
                 />
@@ -62,11 +75,11 @@ const TabsLayout = () => {
                         headerShown: false,
                         tabBarIcon: ({ color, focused }) => (
                             <TabIcon
-                                icon={require('../../assets/icons/workout.png')}
+                                icon={"workout.png "}
                                 color={color}
                                 focused={focused}
-                                name="workouts">
-                            </TabIcon>
+                                name="workouts"
+                            />
                         )
                     }}
                 />
@@ -77,11 +90,11 @@ const TabsLayout = () => {
                         headerShown: false,
                         tabBarIcon: ({ color, focused }) => (
                             <TabIcon
-                                icon={require('../../assets/icons/profile.png')}
+                                icon={"profile.png"}
                                 color={color}
                                 focused={focused}
-                                name="profile">
-                            </TabIcon>
+                                name="profile"
+                            />
                         )
                     }}
                 />

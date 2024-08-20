@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { StatusBar, ScrollView, View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 const Home = () => {
     let streak = 0;
     let maxStreak = 42;
+    let Weight = 1;
+    let maxWeight = 190;
 
     const apiKey = '';
 
@@ -39,50 +42,68 @@ const Home = () => {
     const [prompt, setPrompt] = useState('')
     const [displayedText, setText] = useState('')
     return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scroll}>
-                <Text style={styles.title}>Home</Text>
+        <LinearGradient style={styles.container} start={{ x: 0, y: 0 }} end={{ x: 0, y: 6 }} colors={['#000', '#FF3A3A']} >
+            <SafeAreaView style={styles.container}>
+                <ScrollView style={styles.scroll}>
+                    <Text style={styles.title}>Home</Text>
 
-                <View style={styles.quickTools}>
-                    <View style={styles.section}>
-                        <Text style={styles.quickToolsText}>Ongoing streak:</Text>
-                        <View style={styles.streak}>
-                            <Text style={styles.streakCount}>{streak}</Text>
-                            <Text style={styles.streakUnit}>days</Text>
+                    <ScrollView style={styles.quickTools} horizontal={true} >
+                        <View style={styles.section}>
+                            <Text style={styles.quickToolsText}>Ongoing streak:</Text>
+                            <View style={styles.streak}>
+                                <Text style={styles.streakCount}>{streak}</Text>
+                                <Text style={styles.streakUnit}>days</Text>
+                            </View>
                         </View>
-                    </View>
-                    <View style={styles.section}>
-                        <Text style={styles.quickToolsText}>Best streak:</Text>
-                        <View style={styles.streak}>
-                            <Text style={styles.streakCount}>{maxStreak}</Text>
-                            <Text style={styles.streakUnit}>days</Text>
+                        <View style={styles.section}>
+                            <Text style={styles.quickToolsText}>Best streak:</Text>
+                            <View style={styles.streak}>
+                                <Text style={styles.streakCount}>{maxStreak}</Text>
+                                <Text style={styles.streakUnit}>days</Text>
+                            </View>
                         </View>
-                    </View>
-                </View>
-                <Text style={styles.secondaryTitle}>Ai help</Text>
-                <View style={styles.AiSection}>
-                    <ScrollView style={styles.chat}>
-                        <Text style={styles.aiText}>{displayedText}</Text>
+                        
+                        <View style={styles.section}>
+                            <Text style={styles.quickToolsText}>Wheight lifted:</Text>
+                            <View style={styles.streak}>
+                                <Text style={styles.streakCount}>{Weight}</Text>
+                                <Text style={styles.streakUnit}>Kg</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.section}>
+                            <Text style={styles.quickToolsText}>Top wheight lifted:</Text>
+                            <View style={styles.streak}>
+                                <Text style={styles.streakCount}>{maxWeight}</Text>
+                                <Text style={styles.streakUnit}>Kg</Text>
+                            </View>
+                        </View>
                     </ScrollView>
-                    <View style={styles.chatTools}>
-                        <TextInput style={styles.input}
-                            placeholder="Type your message here"
-                            onChangeText={(text) => setPrompt(text)}
-                            value={prompt}
-                        />
-                        <TouchableOpacity style={styles.button} onPress={handleRequest}><Text style={styles.buttonText}>ask</Text></TouchableOpacity>
+                    <Text style={styles.secondaryTitle}>Ai help</Text>
+                    <View style={styles.AiSection}>
+                        <ScrollView style={styles.chat}>
+                            <Text style={styles.aiText}>{displayedText}</Text>
+                        </ScrollView>
+                        <View style={styles.chatTools}>
+                            <TextInput style={styles.input}
+                                placeholder="Type your message here"
+                                onChangeText={(text) => setPrompt(text)}
+                                value={prompt}
+                            />
+                            <TouchableOpacity style={styles.button} onPress={handleRequest}><Text style={styles.buttonText}>ask</Text></TouchableOpacity>
+                        </View>
                     </View>
-                </View>
-            </ScrollView>
-        </SafeAreaView>
+                </ScrollView>
+            </SafeAreaView>
+
+        </LinearGradient>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#000',
-        flex: 1,
-        paddingTop: StatusBar.currentHeight,
+        width: '100%',
+        height: '100%',
     },
 
     title: {
@@ -117,8 +138,9 @@ const styles = StyleSheet.create({
         padding: 16,
         backgroundColor: '#1B1B1B',
         height: '100%',
-        width: '50%',
+        width: 140,
         borderRadius: 5,
+        marginLeft: 5,
     },
 
     quickToolsText: {
