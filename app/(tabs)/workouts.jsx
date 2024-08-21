@@ -3,6 +3,7 @@ import { StatusBar, ScrollView, View, TextInput, TouchableOpacity, Text, StyleSh
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { NAVBAR } from '../../assets/icons/icons';
+import { Button } from 'react-native-web';
 
 const workouts = () => {
     return (
@@ -43,6 +44,81 @@ const workouts = () => {
                         </TouchableOpacity>
                         <TextInput style={styles.input} placeholder="Search routine" placeholderTextColor="#999" />
                     </View>
+
+                    <ScrollView style={styles.routinesList}>
+                        <View style={styles.routine}>
+                            <Text style={styles.subtitle}>Powerlift race prepraration</Text>
+                            <Text style={styles.description}>Preparation for my powerlift race </Text>
+                            <View style={styles.quickTools}>
+                                <TouchableOpacity style={styles.CreateButton}>
+                                    <Text style={styles.textButon}>View routine</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.deleteButton}>
+                                    <Text style={styles.textButon}>Delete routine</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={styles.routine}>
+                            <Text style={styles.subtitle}>Powerlift race prepraration</Text>
+                            <Text style={styles.description}>Preparation for my powerlift race </Text>
+                            <View style={styles.quickTools}>
+                                <TouchableOpacity style={styles.CreateButton}>
+                                    <Text style={styles.textButon}>View routine</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.deleteButton}>
+                                    <Text style={styles.textButon}>Delete routine</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={styles.routine}>
+                            <Text style={styles.subtitle}>Powerlift race prepraration</Text>
+                            <Text style={styles.description}>Preparation for my powerlift race </Text>
+                            <View style={styles.quickTools}>
+                                <TouchableOpacity style={styles.CreateButton}>
+                                    <Text style={styles.textButon}>View routine</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.deleteButton}>
+                                    <Text style={styles.textButon}>Delete routine</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={styles.routine}>
+                            <Text style={styles.subtitle}>Powerlift race prepraration</Text>
+                            <Text style={styles.description}>Preparation for my powerlift race </Text>
+                            <View style={styles.quickTools}>
+                                <TouchableOpacity style={styles.CreateButton}>
+                                    <Text style={styles.textButon}>View routine</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.deleteButton}>
+                                    <Text style={styles.textButon}>Delete routine</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={styles.routine}>
+                            <Text style={styles.subtitle}>Powerlift race prepraration</Text>
+                            <Text style={styles.description}>Preparation for my powerlift race </Text>
+                            <View style={styles.quickTools}>
+                                <TouchableOpacity style={styles.CreateButton}>
+                                    <Text style={styles.textButon}>View routine</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.deleteButton}>
+                                    <Text style={styles.textButon}>Delete routine</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        <View style={styles.routine}>
+                            <Text style={styles.subtitle}>Powerlift race prepraration</Text>
+                            <Text style={styles.description}>Preparation for my powerlift race </Text>
+                            <View style={styles.quickTools}>
+                                <TouchableOpacity style={styles.CreateButton}>
+                                    <Text style={styles.textButon}>View routine</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={styles.deleteButton}>
+                                    <Text style={styles.textButon}>Delete routine</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </ScrollView>
                 </SafeAreaView>
             </ScrollView>
         </LinearGradient>
@@ -151,14 +227,48 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    input:{
+    input: {
         backgroundColor: '#333',
         color: '#fff',
         paddingHorizontal: 10,
         marginLeft: '2%',
         borderRadius: 5,
         width: '48%',
-        height:40,
+        height: 40,
+    },
+
+    routinesList: {
+        width: '100%',
+        height: 300,
+        backgroundColor: '#1B1B1B',
+        borderRadius: 5,
+        marginTop: 10,
+        padding: '4%',
+    },
+
+    routine: {
+        width: '100%',
+        height: 'fit-content',
+        backgroundColor: '#000',
+        borderRadius: 3,
+        padding: '4%',
+        marginBottom: 10,
+    },
+
+    description: {
+        color: '#333',
+        fontSize: 12,
+        fontWeight: 'bold',
+    },
+    
+    deleteButton:{
+        backgroundColor: '#EF5555',
+        width: '48%',
+        marginLeft: '2%',
+        height: 40,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })
 

@@ -10,7 +10,7 @@ const Home = () => {
     let maxStreak = 42;
     let Weight = 1;
     let maxWeight = 290;
-    const apiKey = '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';
+    const apiKey = '';
 
     async function getGroqChatCompletion(userMessage) {
         if(userMessage === "") return "Somebody is not talking to me, and that's not cool here in the gym";
@@ -242,7 +242,6 @@ const styles = StyleSheet.create({
         height: 20,
         tintColor: '#fff',
     }
-
 });
 
 export default Home;
