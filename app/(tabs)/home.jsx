@@ -104,6 +104,7 @@ const Home = () => {
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop: 4,
         width: '100%',
         height: '100%',
     },
@@ -200,7 +201,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         borderRadius: 2,
         width: '75%',
-        placeholderTextColor: '#888'
+        placeholderTextColor: '#888',
     },
 
     button: {
