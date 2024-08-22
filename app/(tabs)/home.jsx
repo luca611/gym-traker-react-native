@@ -10,35 +10,7 @@ const Home = () => {
     let maxStreak = 42;
     let Weight = 1;
     let maxWeight = 290;
-    const apiKey = '';
 
-    async function getGroqChatCompletion(userMessage) {
-        if(userMessage === "") return "Somebody is not talking to me, and that's not cool here in the gym";
-        const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                messages: [{ role: 'user', content: "(the question must be gym related, talk like a gymbro but avoid saying bro every two phrases, if not refuse to answser, use also emoji, avoid ** **)" + userMessage }],
-                model: 'llama3-70b-8192'
-            })
-        });
-        const data = await response.json();
-        return data.choices[0]?.message?.content || "";
-    }
-
-    const handleRequest = () => {
-        setPrompt('');
-        response = getGroqChatCompletion(prompt);
-        response.then((data) => {
-            setText(data);
-        });
-    }
-
-    const [prompt, setPrompt] = useState('')
-    const [displayedText = "How can i help you today?", setText] = useState('')
     
     return (
         <LinearGradient style={styles.container} start={{ x: 0, y: 0 }} end={{ x: 0, y: 6 }} colors={['#000', '#FF3A3A']} >
@@ -78,23 +50,6 @@ const Home = () => {
                             </View>
                         </View>
                     </ScrollView>
-                    <Text style={styles.secondaryTitle}>Ai help</Text>
-                    <View style={styles.AiSection}>
-                        <ScrollView style={styles.chat}>
-                            <Text style={styles.aiText}>{displayedText}</Text>
-                            <Text style={styles.warning}>The answer is Ai generated so it might include errors, please verify it with a professional trainer.</Text>
-                        </ScrollView>
-                        <View style={styles.chatTools}>
-                            <TextInput style={styles.input}
-                                placeholder="Type your message here"
-                                onChangeText={(text) => setPrompt(text)}
-                                value={prompt}
-                            />
-                            <TouchableOpacity style={styles.button} onPress={handleRequest}>
-                                <Image source={NAVBAR.send.source} style={styles.sendIcon}></Image>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
                 </ScrollView>
             </SafeAreaView>
 
@@ -172,28 +127,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 
-    AiSection: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 16,
-        width: '100%',
-        height: 400,
-        backgroundColor: '#1B1B1B',
-        borderRadius: 3,
-        padding: 15,
-    },
-    chat: {
-        backgroundColor: '#000',
-        height: '80%',
-        borderRadius: 2,
-        padding: 10,
-    },
-    chatTools: {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: 14,
-        alignItems: 'center',
-    },
     input: {
         height: 50,
         backgroundColor: '#000',
@@ -219,29 +152,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 
-    aiText: {
-        color: '#fff',
-        fontSize: 16,
-        marginBottom: 5,
-    },
-
     scroll: {
         marginHorizontal: 20,
         height: 600,
     },
 
-    warning: {
-        color: '#FF2E2E',
-        fontSize: 12,
-        textAlign: 'left',
-        marginBottom: 30,
-    },
-
-    sendIcon: {
-        width: 20,
-        height: 20,
-        tintColor: '#fff',
-    }
 });
 
 export default Home;

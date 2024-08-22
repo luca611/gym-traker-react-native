@@ -1,3 +1,5 @@
+import ai from '../../app/(tabs)/ai';
+
 export const NAVBAR = {
     home: {
         source: require('./Normal/home.png')
@@ -11,4 +13,7 @@ export const NAVBAR = {
     send:{
         source: require('./send.png')
     },
+    ai:{
+        source: require('./Normal/ai.png')
+    }
 }

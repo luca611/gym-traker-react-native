@@ -10,7 +10,7 @@ const TabIcon = ({ icon, color, name, focused }) => {
         }}>
             <View style={{
                 width: 50, height: 40,
-                flex:1,
+                flex: 1,
                 justifyContent: 'center',
             }}
             >
@@ -25,7 +25,7 @@ const TabIcon = ({ icon, color, name, focused }) => {
                 />
             </View>
             <View style={{
-                width: 50, 
+                width: 50,
             }} >
                 <Text style={{
                     color: focused ? '#FF2E2E' : '#fff',
@@ -52,7 +52,7 @@ const TabsLayout = () => {
                     options={{
                         title: 'Home',
                         headerShown: false,
-                        tabBarIcon: ({color,focused }) => (
+                        tabBarIcon: ({ color, focused }) => (
                             <TabIcon
                                 icon={NAVBAR.home.source}
                                 focused={focused}
@@ -88,6 +88,21 @@ const TabsLayout = () => {
                                 color={color}
                                 focused={focused}
                                 name="profile"
+                            />
+                        )
+                    }}
+                />
+
+                <Tabs.Screen name="ai" styles={styles.tab}
+                    options={{
+                        title: 'ai',
+                        headerShown: false,
+                        tabBarIcon: ({ color, focused }) => (
+                            <TabIcon
+                                icon={NAVBAR.ai.source}
+                                color={color}
+                                focused={focused}
+                                name="ai help"
                             />
                         )
                     }}
