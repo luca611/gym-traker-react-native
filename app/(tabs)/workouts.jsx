@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { StatusBar, ScrollView, View, TextInput, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
+import { ScrollView, View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
-import { NAVBAR } from '../../assets/icons/icons';
-import { Button } from 'react-native-web';
+import { router } from 'expo-router';
 
 const workouts = () => {
     return (
@@ -39,7 +37,7 @@ const workouts = () => {
                     </View>
                     <Text style={styles.secondaryTitle}>Routines</Text>
                     <View style={styles.quickTools}>
-                        <TouchableOpacity style={styles.CreateButton}>
+                        <TouchableOpacity style={styles.CreateButton} onPress={() => router.replace('/routineCreation')}>
                             <Text style={styles.textButon}>Create new routine</Text>
                         </TouchableOpacity>
                         <TextInput style={styles.input} placeholder="Search routine" placeholderTextColor="#999" />
