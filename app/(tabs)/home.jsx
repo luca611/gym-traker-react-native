@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { StatusBar, ScrollView, View, TextInput, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
-import { NAVBAR } from '../../assets/icons/icons';
 
 
 const Home = () => {
@@ -43,13 +42,30 @@ const Home = () => {
                         </View>
 
                         <View style={styles.section}>
-                            <Text style={styles.quickToolsText}>Top wheight:</Text>
+                            <Text style={styles.quickToolsText}>Top rep wheight:</Text>
                             <View style={styles.streak}>
                                 <Text style={styles.streakCount}>{maxWeight}</Text>
                                 <Text style={styles.streakUnit}>Kg</Text>
                             </View>
                         </View>
                     </ScrollView>
+                    <Text style={styles.secondaryTitle}>Current workout</Text>
+                    <View style={styles.workoutCard}>
+                        <Text style={styles.subtitle}>Chest master</Text>
+                        <View style={styles.ecxercise}>
+                            <Text style={styles.excerciseText}>Bench press</Text>
+                            <Text style={styles.excerciseText}>40kg</Text>
+                            <Text style={styles.excerciseText}>10</Text>
+                        </View>
+                        <View style={styles.ExcericseButtonContainer}>
+                            <TouchableOpacity style={styles.ecxerciseButton}>
+                                <Text style={styles.excerciseText}>next</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.ecxerciseButton}>
+                                <Text style={styles.excerciseText}>view</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 </ScrollView>
             </SafeAreaView>
 
@@ -80,7 +96,8 @@ const styles = StyleSheet.create({
 
     subtitle: {
         fontSize: 18,
-        color: '#888',
+        color: '#fff',
+        fontWeight: 'bold',
     },
     quickTools: {
         width: '100%',
@@ -156,6 +173,49 @@ const styles = StyleSheet.create({
         marginHorizontal: 20,
         height: 600,
     },
+
+    workoutCard: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 8,
+        backgroundColor: '#1B1B1B',
+        padding: 16,
+        borderRadius: 5,
+        height: 150,
+    },
+
+    ecxercise: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: 8,
+        backgroundColor: '#543535',
+        padding: 8,
+        borderRadius: 5,
+    },
+
+    excerciseText: {
+        fontSize: 16,
+        color: '#fff',
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    ExcericseButtonContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: 8,
+        borderRadius: 5,
+    },
+    ecxerciseButton: {
+        textAlign: 'center',
+        backgroundColor: '#FF2E2E',
+        padding: 8,
+        borderRadius: 5,
+        width:'45%'
+    }
 
 });
 
