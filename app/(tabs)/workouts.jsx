@@ -16,22 +16,22 @@ const workouts = () => {
                         <ScrollView style={styles.setContiner} horizontal={true}>
                             <View style={styles.set}>
                                 <Text style={styles.setText}>Summer ☀️</Text>
-                                <TouchableOpacity style={styles.setButton}><Text style={styles.textButon}>View more</Text></TouchableOpacity>
+                                <TouchableOpacity style={styles.setButton}><Text style={styles.textButon}>Start</Text></TouchableOpacity>
                             </View>
 
                             <View style={styles.set}>
                                 <Text style={styles.setText}>Chill one</Text>
-                                <TouchableOpacity style={styles.setButton}><Text style={styles.textButon}>View more</Text></TouchableOpacity>
+                                <TouchableOpacity style={styles.setButton}><Text style={styles.textButon}>Start</Text></TouchableOpacity>
                             </View>
 
                             <View style={styles.set}>
                                 <Text style={styles.setText}>Shoulder focused</Text>
-                                <TouchableOpacity style={styles.setButton}><Text style={styles.textButon}>View more</Text></TouchableOpacity>
+                                <TouchableOpacity style={styles.setButton}><Text style={styles.textButon}>Start</Text></TouchableOpacity>
                             </View>
 
                             <View style={styles.set}>
                                 <Text style={styles.setText}>Race preparation</Text>
-                                <TouchableOpacity style={styles.setButton}><Text style={styles.textButon}>View more</Text></TouchableOpacity>
+                                <TouchableOpacity style={styles.setButton}><Text style={styles.textButon}>Start</Text></TouchableOpacity>
                             </View>
                         </ScrollView>
                     </View>
@@ -48,11 +48,11 @@ const workouts = () => {
                             <Text style={styles.subtitle}>Powerlift race prepraration</Text>
                             <Text style={styles.description}>Preparation for my powerlift race </Text>
                             <View style={styles.quickTools}>
-                                <TouchableOpacity style={styles.CreateButton}>
-                                    <Text style={styles.textButon}>View routine</Text>
+                                <TouchableOpacity style={styles.CreateButton} onPress={() => router.replace('/routinePage')}>
+                                    <Text style={styles.textButon}>Start routine</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.deleteButton}>
-                                    <Text style={styles.textButon}>Delete routine</Text>
+                                    <Text style={styles.textButon}>View routine</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -60,11 +60,11 @@ const workouts = () => {
                             <Text style={styles.subtitle}>Powerlift race prepraration</Text>
                             <Text style={styles.description}>Preparation for my powerlift race </Text>
                             <View style={styles.quickTools}>
-                                <TouchableOpacity style={styles.CreateButton}>
-                                    <Text style={styles.textButon}>View routine</Text>
+                                <TouchableOpacity style={styles.CreateButton} onPress={() => router.replace('/routinePage')}>
+                                    <Text style={styles.textButon}>Start routine</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.deleteButton}>
-                                    <Text style={styles.textButon}>Delete routine</Text>
+                                    <Text style={styles.textButon}>View routine</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -72,11 +72,11 @@ const workouts = () => {
                             <Text style={styles.subtitle}>Powerlift race prepraration</Text>
                             <Text style={styles.description}>Preparation for my powerlift race </Text>
                             <View style={styles.quickTools}>
-                                <TouchableOpacity style={styles.CreateButton}>
-                                    <Text style={styles.textButon}>View routine</Text>
+                                <TouchableOpacity style={styles.CreateButton} onPress={() => router.replace('/routinePage')}>
+                                    <Text style={styles.textButon}>Start routine</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.deleteButton}>
-                                    <Text style={styles.textButon}>Delete routine</Text>
+                                    <Text style={styles.textButon}>View routine</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -84,11 +84,11 @@ const workouts = () => {
                             <Text style={styles.subtitle}>Powerlift race prepraration</Text>
                             <Text style={styles.description}>Preparation for my powerlift race </Text>
                             <View style={styles.quickTools}>
-                                <TouchableOpacity style={styles.CreateButton}>
-                                    <Text style={styles.textButon}>View routine</Text>
+                                <TouchableOpacity style={styles.CreateButton} onPress={() => router.replace('/routinePage')}>
+                                    <Text style={styles.textButon}>Start routine</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.deleteButton}>
-                                    <Text style={styles.textButon}>Delete routine</Text>
+                                    <Text style={styles.textButon}>View routine</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -96,11 +96,11 @@ const workouts = () => {
                             <Text style={styles.subtitle}>Powerlift race prepraration</Text>
                             <Text style={styles.description}>Preparation for my powerlift race </Text>
                             <View style={styles.quickTools}>
-                                <TouchableOpacity style={styles.CreateButton}>
-                                    <Text style={styles.textButon}>View routine</Text>
+                                <TouchableOpacity style={styles.CreateButton} onPress={() => router.replace('/routinePage')}>
+                                    <Text style={styles.textButon}>Start routine</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.deleteButton}>
-                                    <Text style={styles.textButon}>Delete routine</Text>
+                                    <Text style={styles.textButon}>View routine</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -108,11 +108,11 @@ const workouts = () => {
                             <Text style={styles.subtitle}>Powerlift race prepraration</Text>
                             <Text style={styles.description}>Preparation for my powerlift race </Text>
                             <View style={styles.quickTools}>
-                                <TouchableOpacity style={styles.CreateButton}>
-                                    <Text style={styles.textButon}>View routine</Text>
+                                <TouchableOpacity style={styles.CreateButton} onPress={() => router.replace('/routinePage')}>
+                                    <Text style={styles.textButon}>Start routine</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={styles.deleteButton}>
-                                    <Text style={styles.textButon}>Delete routine</Text>
+                                    <Text style={styles.textButon}>View routine</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>

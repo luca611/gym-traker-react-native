@@ -15,5 +15,14 @@ export const NAVBAR = {
     },
     ai:{
         source: require('./Normal/ai.png')
+    },
+    timer:{
+        source: require('./Normal/timer.png')
+    },
+    close:{
+        source: require('./Normal/exit.png')
+    },
+    add:{
+        source: require('./Normal/add.png')
     }
 }
