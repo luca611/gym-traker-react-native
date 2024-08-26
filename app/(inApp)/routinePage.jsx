@@ -5,7 +5,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ScrollView, TouchableOpacity, GestureHandlerRootView } from 'react-native-gesture-handler';
 import { router } from 'expo-router';
 import { NAVBAR } from '../../assets/icons/icons';
-import { Icon } from '@mui/material';
 
 const routinePage = () => {
     return (
@@ -20,7 +19,7 @@ const routinePage = () => {
                                 <Text style={styles.timerText}>00:00</Text>
                             </View>
                         </View>
-                        <TouchableOpacity style={styles.closeButton} onPress={()=> router.replace('/workouts')}>
+                        <TouchableOpacity style={styles.closeButton} onPress={() => router.replace('/workouts')}>
                             <Image source={NAVBAR.close.source} style={styles.TimerIcon}></Image>
                         </TouchableOpacity>
                     </View>
@@ -60,6 +59,26 @@ const routinePage = () => {
                             </View>
                         </View>
                     </ScrollView>
+                    <View style={styles.workoutInfo}>
+                        <View style={styles.workoutInfoText}>
+                            <View style={styles.workoutInfoHeader}>
+                                <Text style={styles.workoutInfoHeaderText}>Time spent</Text>
+                                <Text style={styles.workoutInfoHeaderText}>Volume</Text>
+                                <Text style={styles.workoutInfoHeaderText}>Sets</Text>
+                            </View>
+                            <View style={styles.workoutInfobody}>
+                                <Text style={styles.workoutInfobodyText}>1:20:12</Text>
+                                <Text style={styles.workoutInfobodyText}>2490Kg</Text>
+                                <Text style={styles.workoutInfobodyText}>24</Text>
+                            </View>
+                        </View>
+                        <View style={styles.finishButtonContainer}>
+                            <TouchableOpacity style={styles.finishButton}>
+                                <Image source={NAVBAR.finish.source} style={styles.TimerIcon}></Image>
+                                <Text style={styles.FinishbuttonText}>Finish</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 </SafeAreaView>
             </LinearGradient>
         </GestureHandlerRootView>
@@ -216,6 +235,66 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         alignSelf: 'center',
     },
+    workoutInfo: {
+        position: 'absolute',
+        bottom: 20,
+        width: '90%',
+        borderRadius: 5,
+        alignSelf: 'center',
+        backgroundColor: '#151515',
+        padding: 10,
+        display: 'flex',
+        gap: 20,
+        flexDirection: 'row',
+    },
+    workoutInfoText: {
+        width: '75%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+    },
+    workoutInfoHeader: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 10,
+    },
+    workoutInfoHeaderText: {
+        color: '#A5A5A5',
+        fontSize: 12,
+        fontWeight: 'bold',
+    },
+    workoutInfobody: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    workoutInfobodyText: {
+        color: '#FFF',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    finishButton: {
+        width: '100%',
+        height:'100%',
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 5,
+        textAlign: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#FF3A3A',
+        borderRadius: 5,
+    },
+    finishButtonContainer: {
+        width: '25%',
+        display: 'flex',
+    },
+    FinishbuttonText: {
+        color: '#FFF',
+        fontSize: 12,
+        fontWeight: 'bold',
+    }
 })
 
 export default routinePage

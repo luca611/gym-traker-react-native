@@ -58,6 +58,20 @@ const ai = () => {
                             </View>
                         </View>
                     </View>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity style={styles.AiButton}>
+                            <Text style={styles.buttonText}>Suggest an excercise</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.AiButton}>
+                            <Text style={styles.buttonText}>Make a challenge</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.AiButton}>
+                            <Text style={styles.buttonText}>Make a routine</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.AiButton}>
+                            <Text style={styles.buttonText}>suggest me a goal</Text>
+                        </TouchableOpacity>
+                    </View>
                 </ScrollView>
             </SafeAreaView>
         </LinearGradient>
@@ -74,6 +88,7 @@ const styles = StyleSheet.create({
     scroll: {
         marginHorizontal: 20,
         height: '100%',
+        display: 'flex',
         backgroundColor: '',
     },
 
@@ -82,11 +97,12 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         gap: 16,
         width: '100%',
-        height: 600,
+        height: 500,
         flexGrow: 1,
         backgroundColor: '#1B1B1B',
         borderRadius: 3,
         padding: 15,
+        flexGrow: 1,
     },
     chat: {
         backgroundColor: '#000',
@@ -143,13 +159,31 @@ const styles = StyleSheet.create({
         height: 20,
         tintColor: '#fff',
     },
-    
+
     Title: {
         fontSize: 30,
         color: '#fff',
         fontWeight: 'bold',
         marginBottom: 20,
+    },
+    buttonContainer: {
+        flexWrap: 'wrap',
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 10,
+        justifyContent: 'space-between',
+        marginTop: 20,
+    },
+    AiButton:{
+        textAlign: 'center',
+        width: '48%',
+        height: 50,
+        backgroundColor: '#FF2E2E',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 2,
     }
+
 })
 
 export default ai

@@ -24,5 +24,8 @@ export const NAVBAR = {
     },
     add:{
         source: require('./Normal/add.png')
-    }
+    },
+    finish:{
+        source: require('./Normal/finish.png')
+    },
 }
