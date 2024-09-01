@@ -32,8 +32,8 @@ npm install expo
 ```bash
 npm install (package name) --save
 ```   
-5. Start the application using Expo:
+4. Start the application using Expo:
 ```bash
 expo start -c
 ```
-6. Open the Expo app on your physical device or emulator and scan the QR code to run the application.
+5. Open the Expo app on your physical device or emulator and scan the QR code to run the application.
